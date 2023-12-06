@@ -1,0 +1,24 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Main.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N            PIC 9(3).
+01 RESULT       PIC 9(1).
+
+PROCEDURE DIVISION.
+
+    ACCEPT N.
+
+    IF N <= 125
+        MOVE 4 TO RESULT
+    ELSE
+        IF N <= 211
+            MOVE 6 TO RESULT
+        ELSE
+            MOVE 8 TO RESULT
+        END-IF
+    END-IF.
+
+    DISPLAY RESULT.
+    STOP RUN.
