@@ -1,0 +1,22 @@
+//ABC179_A 
+//plural.cbl
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. xxx.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 S           PIC X(255).
+01 n           PIC 9(3).
+
+PROCEDURE DIVISION.
+    ACCEPT S.
+    COMPUTE n = FUNCTION LENGTH(S).
+
+    IF S(n:1) = "s"
+        DISPLAY S "es"
+    ELSE
+        DISPLAY S "s"
+    END-IF.
+
+    STOP RUN.
