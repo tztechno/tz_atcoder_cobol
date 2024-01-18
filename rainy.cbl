@@ -2,33 +2,32 @@
 
     
 ############################################
-############# MY ANS WITH ERROR ############
 
 IDENTIFICATION DIVISION.
-PROGRAM-ID. xxx.
+PROGRAM-ID. XXX.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 S PIC X(3).
 01 ANS PIC 9(1) VALUE 0.
-01 DP OCCURS 4 TIMES PIC 9(5) VALUE 0.
+01 DP PIC 9(1) VALUE 0.
 01 I PIC 9(1).
 
 PROCEDURE DIVISION.
     ACCEPT S.
     PERFORM VARYING I FROM 1 BY 1 UNTIL I > 3
         IF S(I:1) = 'R'
-            MOVE DP(I) TO DP(I+1)
-            ADD 1 TO DP(I+1)
-            IF DP(I+1) > ANS
-                MOVE DP(I+1) TO ANS
+            ADD 1 TO DP
+            IF DP > ANS
+                MOVE DP TO ANS
             END-IF
+        ELSE
+            MOVE 0 TO DP
         END-IF
     END-PERFORM.
     DISPLAY ANS.
-    STOP RUN.
+    STOP RUN.  
 
-############# MY ANS WITH ERROR ############    
 ############################################
 
        IDENTIFICATION DIVISION.
