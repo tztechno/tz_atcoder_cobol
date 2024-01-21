@@ -1,0 +1,82 @@
+//abc174_a conditioner.cbl
+
+####################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. 174A.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 X          PIC S9(02).
+01 OUT        PIC ZZ9.
+*>
+PROCEDURE DIVISION.
+  ACCEPT X.
+*>
+  IF (X >= 30)
+    DISPLAY 'Yes'
+  ELSE
+    DISPLAY 'No'
+  END-IF.
+*>
+  STOP RUN.
+####################################
+IDENTIFICATION  DIVISION.
+PROGRAM-ID.     HELLO.
+
+DATA DIVISION.
+	WORKING-STORAGE SECTION.
+        01 X PIC S99.
+      
+PROCEDURE       DIVISION.
+    ACCEPT X.
+    IF X < 30 THEN 
+      DISPLAY 'No'
+    ELSE
+      DISPLAY 'Yes'
+    END-IF.
+    STOP RUN.
+####################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ATCODER.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+   01 WK.
+       03 X PIC S9(18).
+PROCEDURE DIVISION.
+   ACCEPT X.
+   IF X >= 30 DISPLAY "Yes"
+   ELSE DISPLAY "No".
+   STOP RUN.
+END PROGRAM ATCODER.
+####################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 X          PIC S9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT X.
+  IF 30 <= X THEN
+    DISPLAY "Yes"
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
+####################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ABC.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 X PIC S9(3) COMP-3.
+
+PROCEDURE DIVISION.
+    ACCEPT X.
+    IF X >= 30
+        DISPLAY "Yes"
+    ELSE
+        DISPLAY "No"
+    END-IF
+    STOP RUN.
+####################################
