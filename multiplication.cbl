@@ -1,0 +1,58 @@
+//abc169_a multiplication.cbl
+################################
+################################
+################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. 169A.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 INP        PIC X(10).
+01 A          PIC 9(03).
+01 B          PIC 9(03).
+01 OUT        PIC*>
+ ZZZZ9.
+PROCEDURE DIVISION.
+  ACCEPT INP.
+  UNSTRING INP DELIMITED BY ' '
+      INTO A B.
+*>
+  COMPUTE OUT = A * B.
+*>
+  DISPLAY FUNCTION TRIM(OUT).
+  STOP RUN.
+################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LN         PIC X(30).
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 ANS        PIC Z(9)9(1).
+
+PROCEDURE DIVISION.
+  ACCEPT LN.
+  UNSTRING LN DELIMITED BY SPACE INTO A B.
+  MULTIPLY A BY B GIVING ANS.
+  DISPLAY FUNCTION TRIM(ANS).
+  STOP RUN.
+################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 ans        PIC 9(10).
+01 ln         PIC X(30).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+ACCEPT ln.
+UNSTRING ln DELIMITED BY SPACE INTO A B.
+COMPUTE ans = A*B.
+MOVE ans TO zs.
+DISPLAY FUNCTION TRIM(zs).
+STOP RUN.
+################################
