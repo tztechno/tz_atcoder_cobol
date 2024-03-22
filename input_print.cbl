@@ -1,5 +1,17 @@
 ###############################################
 ###############################################
+
+[display not trimmed number]
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N PIC 9(3).
+PROCEDURE DIVISION.
+    ACCEPT N.
+    DISPLAY N.
+    STOP RUN.
+
 ###############################################
 IDENTIFICATION DIVISION.
 PROGRAM-ID. Main.
