@@ -111,3 +111,50 @@ MAIN-001.
 MAIN-EXIT.
   STOP RUN.
 #########################################
+[MY ANS]
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A PIC 9(5).
+01 B PIC 9(5).
+01 C PIC 9(5).
+01 D PIC 9(5).
+01 LINE1 PIC X(12).
+01 DIFF-CA PIC 9(5).
+01 DIFF-AC PIC 9(5).
+01 DIFF-AB PIC 9(5).
+01 DIFF-BA PIC 9(5).
+01 DIFF-BC PIC 9(5).
+01 DIFF-CB PIC 9(5).
+
+PROCEDURE DIVISION.
+    ACCEPT LINE1.
+    UNSTRING LINE1 DELIMITED BY SPACE INTO A B C D.
+
+    COMPUTE DIFF-CA = C - A
+    COMPUTE DIFF-AC = A - C
+    COMPUTE DIFF-AB = A - B
+    COMPUTE DIFF-BA = B - A
+    COMPUTE DIFF-BC = B - C
+    COMPUTE DIFF-CB = C - B
+
+    IF DIFF-CA >= 0 AND DIFF-CA <= D THEN
+        DISPLAY 'Yes'
+    ELSE IF DIFF-AC >= 0 AND DIFF-AC <= D THEN
+        DISPLAY 'Yes'
+    ELSE IF DIFF-AB > D THEN
+        DISPLAY 'No'
+    ELSE IF DIFF-BA > D THEN
+        DISPLAY 'No'
+    ELSE IF DIFF-BC > D THEN
+        DISPLAY 'No'
+    ELSE IF DIFF-CB > D THEN
+        DISPLAY 'No'
+    ELSE 
+        DISPLAY 'Yes'  
+    END-IF.    
+    
+    STOP RUN.
+#########################################
