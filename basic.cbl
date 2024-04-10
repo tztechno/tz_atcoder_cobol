@@ -1,3 +1,5 @@
+##############################################################
+
 変数名は4文字まで
 
 IDENTIFICATION DIVISION.
@@ -32,3 +34,31 @@ output
        100　 :0が空白に
 100          :空白をdelete
 -----------------------------------
+
+##############################################################
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ArithmeticOperations.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Num1 PIC 9(5) VALUE 12345.
+01 Num2 PIC 9(5) VALUE 67890.
+01 Result PIC 9(6).
+
+PROCEDURE DIVISION.
+    COMPUTE Result = Num1 + Num2.
+    DISPLAY "Addition Result: " Result.
+    
+    COMPUTE Result = Num1 - Num2.
+    DISPLAY "Subtraction Result: " Result.
+    
+    COMPUTE Result = Num1 * Num2.
+    DISPLAY "Multiplication Result: " Result.
+    
+    COMPUTE Result = Num1 / Num2.
+    DISPLAY "Division Result: " Result.
+    
+    STOP RUN.
+
+##############################################################
