@@ -1,10 +1,10 @@
 
 IDENTIFICATION DIVISION.
-PROGRAM-ID. PROGRAM_ID.
+PROGRAM-ID. MAIN.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-    01 INPUT      PIC X(100).
+    01 input      PIC X(100).
     01 a          PIC 9(10).
     01 b          PIC 9(10).
     01 c          PIC 9(10).
@@ -13,13 +13,13 @@ WORKING-STORAGE SECTION.
     01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
-    ACCEPT INPUT.
-    UNSTRING ln DELIMITED BY SPACE INTO a b c d
+    ACCEPT input.
+    UNSTRING input DELIMITED BY SPACE INTO a b c d
     DISPLAY a
     DISPLAY b
     DISPLAY c
     DISPLAY d
-    COMPUTE ans = xxxxxxxxxxxxxxxxxxx
-    MOVE ans TO zs.
+    COMPUTE t = max(min(b,d)-max(a,c),0)
+    MOVE t TO zs.
     DISPLAY FUNCTION TRIM(zs).
     STOP RUN.
