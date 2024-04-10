@@ -1,10 +1,11 @@
+変数名は4文字まで
 
 IDENTIFICATION DIVISION.
 PROGRAM-ID. MAIN.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-    01 input      PIC X(100).
+    01 INPT      PIC X(30).
     01 a          PIC 9(10).
     01 b          PIC 9(10).
     01 c          PIC 9(10).
@@ -13,13 +14,21 @@ WORKING-STORAGE SECTION.
     01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
-    ACCEPT input.
-    UNSTRING input DELIMITED BY SPACE INTO a b c d
-    DISPLAY a
-    DISPLAY b
-    DISPLAY c
+    ACCEPT INPT.
+    UNSTRING INPT DELIMITED BY SPACE INTO a b c d
     DISPLAY d
-    COMPUTE t = max(min(b,d)-max(a,c),0)
-    MOVE t TO zs.
+    MOVE d TO zs.
+    DISPLAY zs.
     DISPLAY FUNCTION TRIM(zs).
     STOP RUN.
+
+
+-----------------------------------
+input
+0 75 25 100
+-----------------------------------
+output
+0000000100   :before
+       100　 :0が空白に
+100          :空白をdelete
+-----------------------------------
