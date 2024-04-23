@@ -75,3 +75,31 @@ PROCEDURE DIVISION.
     STOP RUN.
 
 ##############################################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+FILE-CONTROL.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+  01 INP PIC X(10000).
+  01 A PIC 9(4).
+  01 B PIC 9(4).
+  01 X PIC 9(4).
+  01 Y PIC 9(4).
+
+PROCEDURE DIVISION.
+  ACCEPT INP.
+  UNSTRING INP DELIMITED BY " " INTO A B.
+  DIVIDE A BY B GIVING X REMAINDER Y.
+      DISPLAY X
+      DISPLAY Y.
+  STOP RUN.
+-----------------------------------
+input
+5 3
+-----------------------------------
+output
+0001
+0002
+-----------------------------------
