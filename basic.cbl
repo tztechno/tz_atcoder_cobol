@@ -103,3 +103,26 @@ output
 0001
 0002
 -----------------------------------
+##############################################################
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+FILE-CONTROL.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+  01 INP PIC X(10000).
+  01 A PIC 9(4).
+  01 B PIC 9(4).
+  01 C PIC 9(4).
+  01 X PIC 9(4).
+  01 Y PIC Z(9)9.
+PROCEDURE DIVISION.
+  ACCEPT INP.
+  UNSTRING INP DELIMITED BY " " INTO A B.
+  COMPUTE C=A*B  
+  DIVIDE C BY 2 GIVING X
+  MOVE X TO Y.
+  DISPLAY FUNCTION TRIM(Y)
+  STOP RUN.
+##############################################################
