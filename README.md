@@ -54,7 +54,13 @@ PIC Z(5) などとすると、先頭のゼロが省略された形で数値を�
 ```
 ---
 ```
-
+  PERFORM VARYING CT FROM 1 BY 1 UNTIL CT > E
+    STRING 
+      STR2 DELIMITED BY SIZE
+      " "    DELIMITED BY SIZE
+      INTO RESULT
+      WITH POINTER PT
+  END-PERFORM.
 ```
 ---
 ```
