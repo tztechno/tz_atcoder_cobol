@@ -26,8 +26,32 @@ PROCEDURE DIVISION.
       DISPLAY "Christmas Eve Eve Eve"
   END-EVALUATE.
   STOP RUN.
+##########################################
+##########################################
+[my ac]
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+  01 INPT       PIC X(30).
+  01 D          PIC 9(10).
+  01 E          PIC 9(10).
+  01 X          PIC 9(10).
+  01 ANS        PIC X(30) VALUE 'Christmas Eve Eve Eve'.
+
+PROCEDURE DIVISION.
+  ACCEPT INPT.
+  UNSTRING INPT DELIMITED BY SPACE INTO D
+  COMPUTE E = 25 - D
+  COMPUTE X = 9 + 4 * E
+  DISPLAY ANS(1:X)
+  STOP RUN.
 
 ##########################################
+[my ac]
+
 IDENTIFICATION DIVISION.
 PROGRAM-ID. MAIN.
 
