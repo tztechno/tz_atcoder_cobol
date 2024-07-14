@@ -77,7 +77,52 @@ PROCEDURE DIVISION.
       DISPLAY "Christmas Eve Eve Eve"
   END-EVALUATE.
   STOP RUN.
+
 ##########################################
+##########################################
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MAIN.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+  01 INPT       PIC X(30).
+  01 D          PIC 9(10).
+  01 E          PIC 9(10).
+  01 STR1    PIC X(9) VALUE "Christmas".
+  01 STR2    PIC X(4) VALUE " Eve".
+  01 RESULT  PIC X(100).
+  01 PT PIC 99 VALUE 1.
+  01 CT PIC 99 VALUE 1.
+
+PROCEDURE DIVISION.
+  ACCEPT INPT.
+  UNSTRING INPT DELIMITED BY SPACE INTO D.
+  COMPUTE E = 25 - D.
+
+  STRING 
+    STR1 DELIMITED BY SIZE
+    INTO RESULT
+    WITH POINTER PT.
+
+  PERFORM VARYING CT FROM 1 BY 1 UNTIL CT > E
+    STRING 
+      STR2 DELIMITED BY SIZE
+      INTO RESULT
+      WITH POINTER PT
+  END-PERFORM.
+
+  DISPLAY RESULT.
+------------------------------------------
+D=int(input())
+E=25-D
+STR1='Christmas'
+STR2=' Eve'
+RESULT=STR1
+for i in range(E):
+  RESULT+=STR2
+print(RESULT)
+
 ##########################################
 - COBOLのSTRING文におけるPOINTERは、次に文字が加えられる位置（番目）を示します。
 - POINTERを設定しない場合、STRING操作は常に受信先フィールドの先頭から開始し、既存の内容を上書きしてしまいます。
