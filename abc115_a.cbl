@@ -79,6 +79,9 @@ PROCEDURE DIVISION.
   STOP RUN.
 ##########################################
 ##########################################
+- COBOLのSTRING文におけるPOINTERは、次に文字が加えられる位置（番目）を示します。
+- POINTERを設定しない場合、STRING操作は常に受信先フィールドの先頭から開始し、既存の内容を上書きしてしまいます。
+
 IDENTIFICATION DIVISION.
 PROGRAM-ID. MAIN.
 
