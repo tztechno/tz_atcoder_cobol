@@ -58,7 +58,26 @@ PIC Z(5) などとすると、先頭のゼロが省略された形で数値を�
 ```
 ---
 ```
+PROGRAM-ID. MAIN.
 
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WS-STR1 PIC X(5) VALUE "Hello".
+01 WS-STR2 PIC X(5) VALUE "World".
+01 WS-RESULT PIC X(30).
+01 WS-POINTER PIC 99 VALUE 1.
+
+PROCEDURE DIVISION.
+    STRING WS-STR1 DELIMITED BY SIZE
+           " "    DELIMITED BY SIZE
+           WS-STR2 DELIMITED BY SIZE
+        INTO WS-RESULT
+        WITH POINTER WS-POINTER
+        ON OVERFLOW
+            DISPLAY "String overflow occurred"
+    END-STRING.
+
+    DISPLAY WS-RESULT.
 ```
 ---
 ```
