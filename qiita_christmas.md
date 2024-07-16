@@ -1,18 +1,32 @@
 ## COBOLでもうすぐクリスマス
 
 ##　はじめに
-##　問題
-abc115_a.cbl
+COBOLは歴史の長い言語でありながら今なお現役で使われています。
+その一方でプログラマは減少しつつあり今後人材不足が危惧されています。
+なので、多言語を並行して学習している人はその中にCOBOLを入れてみるのも面白いかもしれません。
+ここでは、AtCoderの問題をCOBOLで3通りに解いて、COBOLスクリプトの特徴を紹介します。
 
-## 条件分岐
+##　問題
+```
+問題文：
+とある世界では、今日は 12 月 D 日です。
+D=25 なら Christmas, D=24 なら Christmas Eve, D=23 なら Christmas Eve Eve,
+D=22 なら Christmas Eve Eve Eve と出力するプログラムを作ってください。
+22≤D≤25、Dは整数
+
+使用言語：COBOL (Free) (GnuCOBOL 3.1.2)
+```
+[abc115_a.cbl](https://atcoder.jp/contests/abc115/tasks/abc115_a)
+
+## 解法１：条件分岐
 ```
 IDENTIFICATION DIVISION.
 PROGRAM-ID. MAIN.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-  01 INPT       PIC X(30).
-  01 D          PIC 9(10).
+  01 INPT       PIC X(30).  //文字フィールド
+  01 D          PIC 9(10).  //数値フィールド
 
 PROCEDURE DIVISION.
   ACCEPT INPT.
@@ -39,8 +53,9 @@ elif D==24:
 else:
     print("Christmas")
 ```
+puthonと同様にif else文が使えます。
 
-## スライス
+## 解法２：文字列スライス
 ```
 IDENTIFICATION DIVISION.
 PROGRAM-ID. MAIN.
@@ -69,8 +84,11 @@ X=9+4*E
 ANS='Christmas Eve Eve Eve'
 print(ANS[0:X])
 ```
+ANSの初期値としえ取りうる最大長の文字列を定義しています。
+COMPUTEで切り取る文字数を数値計算し、最後に必要な長さを切り取リます。
 
-## 文字列結合
+
+## 解法３：文字列結合
 ```
 IDENTIFICATION DIVISION.
 PROGRAM-ID. MAIN.
@@ -96,7 +114,7 @@ PROCEDURE DIVISION.
     INTO RESULT
     WITH POINTER PT.
 
-  PERFORM VARYING CT FROM 1 BY 1 UNTIL CT > E
+  PERFORM VARYING CT FROM 1 BY 1 UNTIL CT > E　//for-loop文
     STRING 
       STR2 DELIMITED BY SIZE
       INTO RESULT
@@ -116,12 +134,11 @@ for i in range(E):
 print(RESULT)
 
 ```
+COBOLでのfor-loop（PERFORM）文
+文字列の結合にはSTRING関数を用います。COMPUTEは数値計算専用であり文字列の結合はできません。
+WITH POINTERは生成した文字列の長さを把握し次に結合させる文字列の頭の番地を記録させる仕組みで、COBOL特有のものです。
+POINTERを設定することで、正しく文字列が結合できます。"Christmas Eve"
+設定せずに結合させると、1番地からの上書きになってしまいます。" Evestmas"
 
-
-
-## 他
-
-[python]
-D=int(input())
-print("Christmas"+" Eve"*(25-D))
+## 終わりに
 
